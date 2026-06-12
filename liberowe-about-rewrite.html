@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liberowe About Page Rewrite by The Silk Pen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:   #ffffff;
+      --off:     #f8f8f6;
+      --light:   #f0f0ee;
+      --stone:   #d8d8d4;
+      --mid:     #a0a09a;
+      --bark:    #606058;
+      --ink:     #1a1a16;
+      --border:  #e4e4e0;
+      --red:     #8c1c1c;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    a, button, input, p, h1, h2, h3, h4, span, div {
+      min-width: 0;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: var(--ink);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      padding: 9px;
+      text-transform: uppercase;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 54px;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-right a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      opacity: 0.4;
+    }
+
+    /* OPENING STATEMENT - full width, maximum impact */
+    .opening {
+      padding: 96px 80px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
+      min-height: 70vh;
+      align-items: end;
+    }
+
+    .opening-left {
+      padding-bottom: 80px;
+      padding-right: 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .opening-overline {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 28px;
+    }
+
+    .opening-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 5.5vw, 76px);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      margin-bottom: 36px;
+    }
+
+    .opening-headline em {
+      font-style: italic;
+      color: var(--bark);
+    }
+
+    .opening-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--bark);
+      max-width: 480px;
+    }
+
+    .opening-divider {
+      background: var(--border);
+      margin: 0 72px 80px;
+      align-self: stretch;
+    }
+
+    .opening-right {
+      padding-bottom: 80px;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .opening-visual {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(145deg, #2a2820 0%, #1a1814 100%);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .opening-visual-tag {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    .opening-caption {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      text-transform: uppercase;
+    }
+
+    /* THE ORIGIN - India story */
+    .origin {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .origin-visual {
+      background: var(--light);
+      position: relative;
+      min-height: 600px;
+      overflow: hidden;
+    }
+
+    .origin-visual-inner {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(155deg, #3a3428 0%, #221e18 100%);
+    }
+
+    .origin-visual-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 48px;
+      background: linear-gradient(to top, rgba(10,10,8,0.8), transparent);
+    }
+
+    .origin-visual-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 400;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .origin-content {
+      padding: 80px 72px;
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .origin-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+
+    .origin-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    .origin-headline em { font-style: italic; }
+
+    .origin-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--bark);
+      margin-bottom: 20px;
+    }
+
+    .origin-body strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* THE PROCESS */
+    .process {
+      background: var(--ink);
+      padding: 88px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      gap: 0;
+    }
+
+    .process-divider {
+      background: rgba(255,255,255,0.08);
+      margin: 0 56px;
+    }
+
+    .process-item {}
+
+    .process-num {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-bottom: 20px;
+    }
+
+    .process-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .process-title em { font-style: italic; }
+
+    .process-body {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* THE WOMAN */
+    .woman-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+    }
+
+    .woman-content {
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .woman-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+
+    .woman-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    .woman-headline em { font-style: italic; }
+
+    .woman-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--bark);
+      margin-bottom: 20px;
+    }
+
+    .woman-body strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .woman-visual {
+      background: var(--light);
+      position: relative;
+    }
+
+    .woman-visual-inner {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #e8e4dc 0%, #d0cbc0 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 36px;
+    }
+
+    .woman-visual-caption {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: rgba(26,26,22,0.4);
+    }
+
+    /* THE CRAFT */
+    .craft-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .craft-item {
+      padding: 56px 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    .craft-item:last-child { border-right: none; }
+
+    .craft-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--stone);
+      margin-bottom: 20px;
+    }
+
+    .craft-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .craft-body {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--bark);
+    }
+
+    /* TALIA QUOTE - full bleed */
+    .talia-quote {
+      padding: 96px 80px;
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .talia-quote-left {}
+
+    .talia-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+
+    .talia-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .talia-title {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .talia-quote-right {
+      border-left: 1px solid var(--border);
+      padding-left: 80px;
+    }
+
+    .talia-quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    /* MADE IN LONDON */
+    .made-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .made-content {
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .made-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+
+    .made-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    .made-headline em { font-style: italic; }
+
+    .made-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--bark);
+      margin-bottom: 20px;
+    }
+
+    .made-body strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .made-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      border-left: 1px solid var(--border);
+      padding: 80px 64px;
+      justify-content: center;
+    }
+
+    .made-stat {
+      padding-left: 20px;
+      border-left: 2px solid var(--border);
+    }
+
+    .made-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .made-stat-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 4px;
+    }
+
+    .made-stat-note {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--bark);
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: var(--ink);
+      padding: 88px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+    }
+
+    .newsletter-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+
+    .newsletter-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .newsletter-headline em { font-style: italic; }
+
+    .newsletter-body {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 15px 18px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.2); }
+    .newsletter-form input:focus { border-color: rgba(255,255,255,0.4); }
+
+    .newsletter-form button {
+      background: var(--white);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .newsletter-form button:hover { background: var(--off); }
+
+    .newsletter-note {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.2);
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+    }
+
+    /* COPY NOTES */
+    .copy-notes {
+      padding: 80px;
+      border-top: 2px solid var(--ink);
+      background: var(--off);
+    }
+
+    .notes-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 52px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notes-badge {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .notes-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .notes-sub {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--mid);
+      margin-left: auto;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 64px;
+    }
+
+    .note-item h4 {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .note-item p {
+      font-family: 'EB Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--bark);
+    }
+
+    /* BEFORE AFTER */
+    .before-after {
+      padding: 0 80px 80px;
+      background: var(--off);
+    }
+
+    .ba-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 20px;
+      padding-top: 4px;
+    }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .ba-card {
+      padding: 28px 32px;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .ba-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      margin-bottom: 16px;
+    }
+
+    .ba-tag.before { background: var(--light); color: var(--mid); }
+    .ba-tag.after { background: var(--ink); color: var(--white); }
+
+    .ba-text {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    .ba-note {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+    }
+
+    /* FOOTER */
+    .footer-bar {
+      background: var(--ink);
+      padding: 22px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .footer-note {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+
+    .footer-email {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-website {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 1px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-website:hover { color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 960px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-logo { position: static; transform: none; }
+      .opening { grid-template-columns: 1fr; padding: 56px 24px 0; }
+      .opening-left { padding-right: 0; padding-bottom: 48px; }
+      .opening-divider { display: none; }
+      .opening-right { padding-bottom: 48px; }
+      .origin { grid-template-columns: 1fr; }
+      .origin-visual { min-height: 55vw; }
+      .origin-content { padding: 48px 24px; border-left: none; border-top: 1px solid var(--border); }
+      .process { grid-template-columns: 1fr; padding: 56px 24px; gap: 40px; }
+      .process-divider { display: none; }
+      .woman-section { grid-template-columns: 1fr; }
+      .woman-content { padding: 48px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .woman-visual { min-height: 55vw; }
+      .craft-strip { grid-template-columns: 1fr; }
+      .craft-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .talia-quote { grid-template-columns: 1fr; padding: 56px 24px; gap: 32px; }
+      .talia-quote-right { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 32px; }
+      .made-section { grid-template-columns: 1fr; }
+      .made-content { padding: 48px 24px; }
+      .made-stats { border-left: none; padding: 40px 24px; border-top: 1px solid var(--border); }
+      .newsletter { grid-template-columns: 1fr; padding: 64px 24px; gap: 40px; }
+      .copy-notes { padding: 48px 24px; }
+      .notes-grid { grid-template-columns: 1fr; gap: 32px; }
+      .before-after { padding: 0 24px 48px; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .footer-bar { padding: 20px 24px; flex-direction: column; gap: 10px; text-align: center; }
+      .footer-contact { align-items: center; }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar {
+        padding: 9px 18px;
+        font-size: 9.5px;
+        line-height: 1.55;
+        letter-spacing: 0.14em;
+      }
+
+      nav {
+        height: auto;
+        min-height: 58px;
+        padding: 14px 20px;
+        gap: 14px;
+      }
+
+      .nav-logo {
+        font-size: 17px;
+        letter-spacing: 0.16em;
+      }
+
+      .nav-right {
+        gap: 16px;
+      }
+
+      .nav-right a {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        white-space: nowrap;
+      }
+
+      .opening {
+        padding: 54px 22px 0;
+        min-height: auto;
+      }
+
+      .opening-left {
+        padding-bottom: 42px;
+      }
+
+      .opening-overline,
+      .origin-label,
+      .process-num,
+      .woman-label,
+      .talia-label,
+      .made-label,
+      .newsletter-label,
+      .notes-badge,
+      .ba-label {
+        font-size: 9.5px;
+        line-height: 1.5;
+        letter-spacing: 0.16em;
+      }
+
+      .opening-overline {
+        margin-bottom: 18px;
+      }
+
+      .opening-headline {
+        font-size: clamp(42px, 13vw, 56px);
+        line-height: 1.04;
+        margin-bottom: 26px;
+        text-wrap: balance;
+      }
+
+      .opening-body,
+      .origin-body,
+      .process-body,
+      .woman-body,
+      .made-body,
+      .newsletter-body,
+      .note-item p {
+        font-size: 16.5px;
+        line-height: 1.72;
+      }
+
+      .opening-right {
+        padding-bottom: 44px;
+      }
+
+      .opening-visual {
+        aspect-ratio: 4 / 3;
+      }
+
+      .origin-visual {
+        min-height: 340px;
+      }
+
+      .origin-visual-text {
+        padding: 28px 22px;
+      }
+
+      .origin-visual-quote {
+        font-size: clamp(23px, 7vw, 30px);
+        line-height: 1.25;
+      }
+
+      .origin-content,
+      .woman-content,
+      .made-content {
+        padding: 46px 22px;
+      }
+
+      .origin-headline,
+      .woman-headline,
+      .made-headline,
+      .newsletter-headline {
+        font-size: clamp(31px, 9vw, 40px);
+        line-height: 1.12;
+        text-wrap: balance;
+      }
+
+      .process {
+        padding: 50px 22px;
+        gap: 34px;
+      }
+
+      .process-title {
+        font-size: clamp(25px, 8vw, 32px);
+        line-height: 1.14;
+      }
+
+      .woman-visual {
+        min-height: 320px;
+      }
+
+      .woman-visual-inner {
+        padding: 26px 22px;
+      }
+
+      .craft-item {
+        padding: 42px 22px;
+      }
+
+      .craft-title {
+        font-size: 24px;
+      }
+
+      .craft-body {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .talia-quote {
+        padding: 52px 22px;
+        gap: 28px;
+      }
+
+      .talia-quote-right {
+        padding-top: 28px;
+      }
+
+      .talia-quote-text {
+        font-size: clamp(25px, 8vw, 34px);
+        line-height: 1.28;
+      }
+
+      .made-stats {
+        padding: 36px 22px;
+        gap: 22px;
+      }
+
+      .made-stat {
+        padding-left: 16px;
+      }
+
+      .made-stat-num {
+        font-size: 32px;
+      }
+
+      .newsletter {
+        padding: 54px 22px;
+        gap: 32px;
+      }
+
+      .newsletter-form input {
+        width: 100%;
+        font-size: 16px;
+        padding: 15px 16px;
+      }
+
+      .newsletter-form button {
+        width: 100%;
+        padding: 15px 16px;
+        line-height: 1.45;
+        letter-spacing: 0.16em;
+      }
+
+      .copy-notes {
+        padding: 48px 22px;
+      }
+
+      .notes-header {
+        display: block;
+        margin-bottom: 34px;
+        padding-bottom: 20px;
+      }
+
+      .notes-title {
+        display: block;
+        font-size: 29px;
+        line-height: 1.15;
+        margin-top: 8px;
+      }
+
+      .notes-sub {
+        display: block;
+        margin: 8px 0 0;
+      }
+
+      .notes-grid {
+        gap: 30px;
+      }
+
+      .note-item h4 {
+        line-height: 1.5;
+        letter-spacing: 0.14em;
+      }
+
+      .before-after {
+        padding: 0 22px 48px;
+      }
+
+      .ba-grid {
+        gap: 16px;
+      }
+
+      .ba-card {
+        padding: 24px 20px;
+      }
+
+      .ba-tag {
+        line-height: 1.45;
+        letter-spacing: 0.14em;
+      }
+
+      .ba-text {
+        font-size: 16.5px;
+        line-height: 1.68;
+      }
+
+      .ba-note {
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .footer-bar {
+        padding: 24px 22px;
+      }
+
+      .footer-note,
+      .footer-email,
+      .footer-website {
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+      }
+    }
+
+    @media (max-width: 380px) {
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 10px;
+      }
+
+      .nav-logo {
+        order: 1;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-right {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .opening-headline {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">Shipping worldwide. Made in London.</div>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Campaigns</a></li>
+      <li><a href="#">Bespoke</a></li>
+    </ul>
+    <div class="nav-logo">Liberowe</div>
+    <ul class="nav-right">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Bag</a></li>
+    </ul>
+  </nav>
+
+  <!-- OPENING STATEMENT -->
+  <section class="opening">
+    <div class="opening-left">
+      <div class="opening-overline">Liberowe, London</div>
+      <h1 class="opening-headline">
+        I make.<br>
+        I do not<br>
+        <em>design.</em>
+      </h1>
+      <p class="opening-body">
+        Talia Loubaton started Liberowe at her dining room table in March 2022
+        with a rail of clothes and a notebook. She had no business plan.
+        She had a jacket, an idea, and hands that already knew what to do.
+        Everything else followed.
+      </p>
+    </div>
+    <div class="opening-divider"></div>
+    <div class="opening-right">
+      <div class="opening-visual">
+        <div class="opening-visual-tag">North London Studio</div>
+      </div>
+      <div class="opening-caption">Talia Loubaton, Founder and Creative Director</div>
+    </div>
+  </section>
+
+  <!-- THE ORIGIN -->
+  <section class="origin">
+    <div class="origin-visual">
+      <div class="origin-visual-inner"></div>
+      <div class="origin-visual-text">
+        <div class="origin-visual-quote">
+          "The noise, the chaos, the beauty. It silenced me. I came back to London with the urge to create. I had no words. Just emotions I wanted to translate into clothes."
+        </div>
+      </div>
+    </div>
+    <div class="origin-content">
+      <div class="origin-label">The Beginning</div>
+      <h2 class="origin-headline">
+        India gave her<br>
+        <em>no words.</em><br>
+        So she made a jacket.
+      </h2>
+      <p class="origin-body">
+        Talia had spent years working in fashion. Alexander McQueen, Central Saint Martins,
+        the industry's best rooms. She knew how clothes were made. Then she went to India
+        and something shifted.
+      </p>
+      <p class="origin-body">
+        <strong>It was not the embroideries she expected to find.</strong> It was the sherwanis.
+        The strict, structured menswear jackets with Nehru collars and precise pocket detailing.
+        Shapes that felt completely timeless. She became obsessed. She wanted to wear one.
+      </p>
+      <p class="origin-body">
+        She came back to London, sat at her dining room table, and made the Raja. Not for a collection.
+        For herself. Then she shared it with other women. And the rest, as she says, just flowed.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROCESS -->
+  <div class="process">
+    <div class="process-item">
+      <div class="process-num">01 / The Process</div>
+      <h3 class="process-title">
+        She starts with<br>
+        <em>the fabric.</em>
+      </h3>
+      <p class="process-body">
+        Not with a sketch. Not with a brief. With the weight of it in her hands,
+        how it drapes, whether it is crisp or fluid. Her background is knitwear.
+        She is tactile before she is visual.
+      </p>
+    </div>
+    <div class="process-divider"></div>
+    <div class="process-item">
+      <div class="process-num">02 / The Method</div>
+      <h3 class="process-title">
+        She drapes on<br>
+        <em>herself.</em>
+      </h3>
+      <p class="process-body">
+        In front of a mirror, alone in the studio. It is almost introspective,
+        she says. She is always asking: what do I want to wear? Then she makes it.
+        Then she shares it with other women.
+      </p>
+    </div>
+    <div class="process-divider"></div>
+    <div class="process-item">
+      <div class="process-num">03 / The Standard</div>
+      <h3 class="process-title">
+        Every piece checked<br>
+        <em>by her hands.</em>
+      </h3>
+      <p class="process-body">
+        Over 80% of Liberowe is made in London. Everything else is produced by
+        ethical manufacturers in Europe. Fabrics from Italian, French and British mills,
+        as well as UK deadstock. Not as a policy. As basic values.
+      </p>
+    </div>
+  </div>
+
+  <!-- THE WOMAN -->
+  <section class="woman-section">
+    <div class="woman-content">
+      <div class="woman-label">The Liberowe Woman</div>
+      <h2 class="woman-headline">
+        She questions things.<br>
+        <em>That is the whole point.</em>
+      </h2>
+      <p class="woman-body">
+        Talia grew up with four brothers. She has always questioned her sense of femininity
+        and her relationship to masculinity, and how the two can meet.
+        Becoming a mother made that question sharper.
+      </p>
+      <p class="woman-body">
+        <strong>The Liberowe woman carries that same dialogue.</strong> She is not one thing.
+        She is attracted to boldness and delicacy at once, to freedom and structure in the same garment.
+        She understands that a well-made jacket does not just dress her. It gives her poise.
+        Presence. A sense of who she is, expressed without explanation.
+      </p>
+      <p class="woman-body">
+        "Once the clothes leave me," Talia says, "they belong to the woman's wardrobe.
+        How she styles and owns them becomes part of the story."
+      </p>
+    </div>
+    <div class="woman-visual">
+      <div class="woman-visual-inner">
+        <div class="woman-visual-caption">AW26, London Fashion Week</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRAFT STRIP -->
+  <div class="craft-strip">
+    <div class="craft-item">
+      <div class="craft-num">London</div>
+      <div class="craft-title">Made Here</div>
+      <p class="craft-body">Over 80% produced in London, by makers whose craft Talia personally knows and audits. The rest made by ethical manufacturers in Italy.</p>
+    </div>
+    <div class="craft-item">
+      <div class="craft-num">Liberty, AW26</div>
+      <div class="craft-title">Stocked Here</div>
+      <p class="craft-body">Liberty London was Liberowe's first London stockist. As a student, Talia used to go there to study the clothes and the finishes. Being part of that story now makes her very proud.</p>
+    </div>
+    <div class="craft-item">
+      <div class="craft-num">2022</div>
+      <div class="craft-title">Started Here</div>
+      <p class="craft-body">A dining room table. A rail of clothes. A notebook for bespoke orders. A jacket she made for herself. That is where this began, and it has not drifted far from that instinct.</p>
+    </div>
+  </div>
+
+  <!-- TALIA QUOTE -->
+  <div class="talia-quote">
+    <div class="talia-quote-left">
+      <div class="talia-label">On tailoring</div>
+      <div class="talia-name">Talia Loubaton</div>
+      <div class="talia-title">Founder and Creative Director, Liberowe</div>
+    </div>
+    <div class="talia-quote-right">
+      <div class="talia-quote-text">
+        "Tailoring gives confidence. When you wear heels, you feel taller. When you wear a jacket, you feel stronger. That is central to my design process. I always start with tailoring to define the shape and silhouette. It is like creating a picture."
+      </div>
+    </div>
+  </div>
+
+  <!-- MADE IN LONDON -->
+  <section class="made-section">
+    <div class="made-content">
+      <div class="made-label">The Commitment</div>
+      <h2 class="made-headline">
+        Clean and ethical<br>
+        was <em>never a choice.</em><br>
+        It was the only way.
+      </h2>
+      <p class="made-body">
+        When Talia developed Liberowe, she says, there was no other way to do it than cleanly.
+        Not because sustainability was a trend. Because making clothes irresponsibly
+        felt like a contradiction she could not live with.
+      </p>
+      <p class="made-body">
+        <strong>Fabrics are sourced from Italian and French mills</strong>, as well as UK deadstock.
+        Everything is produced in small quantities, by people Talia knows.
+        Private orders and bespoke pieces are available for those who want something made specifically for them.
+        That conversation started in a friend's living room in 2022. It is still the same conversation.
+      </p>
+    </div>
+    <div class="made-stats">
+      <div class="made-stat">
+        <div class="made-stat-num">80%+</div>
+        <div class="made-stat-label">Made in London</div>
+        <div class="made-stat-note">The rest produced ethically in Italy.</div>
+      </div>
+      <div class="made-stat">
+        <div class="made-stat-num">2022</div>
+        <div class="made-stat-label">Founded</div>
+        <div class="made-stat-note">A dining room table, a rail, a notebook.</div>
+      </div>
+      <div class="made-stat">
+        <div class="made-stat-num">CSM</div>
+        <div class="made-stat-label">Trained At</div>
+        <div class="made-stat-note">Central Saint Martins, London. Knitwear.</div>
+      </div>
+      <div class="made-stat">
+        <div class="made-stat-num">Liberty</div>
+        <div class="made-stat-label">First London Stockist</div>
+        <div class="made-stat-note">Plus London Fashion Week AW26.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div>
+      <div class="newsletter-label">Stay close to Liberowe</div>
+      <h2 class="newsletter-headline">
+        New pieces.<br>
+        <em>The stories behind them.</em>
+      </h2>
+      <p class="newsletter-body">
+        New collections, bespoke availability, and dispatches from Talia on where
+        the work is going next. Written when there is something worth sharing.
+        For the women who want to know more than just what to wear.
+      </p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address">
+      <button type="submit">Receive Exclusive Access</button>
+      <p class="newsletter-note">
+        No clutter. Unsubscribe whenever you like.
+      </p>
+    </div>
+  </section>
+
+  <!-- COPY NOTES -->
+  <section class="copy-notes">
+    <div class="notes-header">
+      <div class="notes-badge">The Silk Pen</div>
+      <div class="notes-title">Copywriter's Notes</div>
+      <div class="notes-sub">What changed and why</div>
+    </div>
+    <div class="notes-grid">
+      <div class="note-item">
+        <h4>The Opening Statement</h4>
+        <p>
+          The live About page opens with: "Liberowe is a brand of luxury tailoring made in London.
+          A clashing dynamic between two realities: Indian menswear and Paris in the seventies."
+          That is accurate but it reads like a press release summary, not a founder's voice.
+          The rewrite opens with Talia's own distinction about her creative process:
+          "I make. I do not design." She said this in an interview with Marie Claire in April 2026.
+          It is the most honest and specific thing she has ever said about what Liberowe is.
+          It belongs at the top of the page, not buried in a magazine feature.
+        </p>
+      </div>
+      <div class="note-item">
+        <h4>The India Origin Story</h4>
+        <p>
+          The live About page mentions India in passing: "inspired by both Indian menswear
+          and Paris in the seventies." But Talia's account of her India trip, in her own words,
+          is one of the most powerful founding stories in London fashion right now.
+          "The noise, the chaos, the beauty. It silenced me. I came back with the urge to create.
+          I had no words. Just emotions I wanted to translate into clothes."
+          That sentence is extraordinary. It is not on the website anywhere.
+          The rewrite gives it the space it has earned.
+        </p>
+      </div>
+      <div class="note-item">
+        <h4>The Process Section</h4>
+        <p>
+          The live About page describes Liberowe's aesthetic and influences in conceptual terms.
+          It does not describe how Talia actually works. Yet her process is what makes Liberowe
+          genuinely distinct from every other London tailoring brand.
+          She drapes on herself in front of a mirror. She starts with the fabric in her hands,
+          not with a sketch. It is introspective before it is commercial.
+          This rewrite puts that process on the page because it is the most
+          compelling thing about how these clothes are made.
+        </p>
+      </div>
+      <div class="note-item">
+        <h4>The Newsletter Capture</h4>
+        <p>
+          The current newsletter footer says: "Receive exclusive access to the latest."
+          That is already stronger than most brands at this stage.
+          But it does not tell you what the access is to, or why it is worth having.
+          The rewrite positions it as a direct line to Talia and the stories behind each collection.
+          "Written when there is something worth sharing. For the women who want to know more
+          than just what to wear." That is the promise Liberowe already makes through its work.
+          The newsletter copy should say so explicitly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE AFTER -->
+  <div class="before-after">
+    <div class="ba-label">Before and After: The Opening</div>
+    <div class="ba-grid">
+      <div class="ba-card">
+        <span class="ba-tag before">Live copy</span>
+        <p class="ba-text">
+          "Liberowe is a brand of luxury tailoring made in London. A clashing dynamic between
+          two realities: Indian menswear and Paris in the seventies. A fresh balance between
+          Orient and Occident, femininity and masculinity, strength and delicacy."
+        </p>
+        <div class="ba-note">
+          Accurate. But written at arm's length. Tells you what to think about the brand
+          before giving you anything to feel. Reads like a brand brief, not a founder.
+        </div>
+      </div>
+      <div class="ba-card">
+        <span class="ba-tag after">Rewrite</span>
+        <p class="ba-text">
+          "I make. I do not design. Talia Loubaton started Liberowe at her dining room table
+          in March 2022 with a rail of clothes and a notebook. She had no business plan.
+          She had a jacket, an idea, and hands that already knew what to do.
+          Everything else followed."
+        </p>
+        <div class="ba-note">
+          Opens with Talia's own words from Marie Claire, April 2026. Grounds the brand
+          in a specific, human moment rather than a conceptual positioning statement.
+          The visitor feels Talia before she is asked to understand her.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <div class="footer-brand">The Silk Pen</div>
+    <div class="footer-note">Copy sample prepared for Liberowe</div>
+    <div class="footer-contact">
+      <a href="mailto:hello@thesilkpen.in" class="footer-email">hello@thesilkpen.in</a>
+      <a href="https://thesilkpen.in" target="_blank" class="footer-website">thesilkpen.in</a>
+    </div>
+  </div>
+
+</body>
+</html>
